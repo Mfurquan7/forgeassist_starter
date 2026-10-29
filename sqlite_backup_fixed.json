@@ -1,0 +1,409 @@
+[
+{
+  "model": "auth.group",
+  "fields": {
+    "name": "Administrator",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "fields": {
+    "name": "Engineer",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "fields": {
+    "name": "Supervisor",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$KcLOqIm3i33RTiogyY1IxR$JrnTRn7xwBhqZgvbeOxwucPgpGNFW7hzcujhQXfC6U0=",
+    "last_login": "2026-10-27T18:35:28.889Z",
+    "is_superuser": true,
+    "username": "dhruva",
+    "first_name": "",
+    "last_name": "",
+    "email": "dhruvacm2007@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-27T16:34:26.941Z",
+    "groups": [
+      [
+        "Engineer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$dMyowhXtDRogCpqVryNP0O$ttPpXiLrTy4F7YoU44E0nlqC7gQc66wVsp61l17NFcI=",
+    "last_login": "2026-10-28T13:22:49.750Z",
+    "is_superuser": false,
+    "username": "test_admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-27T18:41:03.743Z",
+    "groups": [
+      [
+        "Administrator"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$olVI0xhaud3Wbx2m7d0G1w$Pg2F8N/zSLvAYy3e3+hhHrkpQ2ru2lFiFtYidZ371PU=",
+    "last_login": "2026-10-28T13:31:34.057Z",
+    "is_superuser": false,
+    "username": "test_engineer",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-27T18:41:03.768Z",
+    "groups": [
+      [
+        "Engineer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$w5fjMfptUOuq0fZuBeLi3a$YqAYnHtdUATcay4q1W4wkP/gRHuiheriSlZ7PsvVixs=",
+    "last_login": "2026-10-28T13:34:18.166Z",
+    "is_superuser": false,
+    "username": "test_supervisor",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-27T18:41:03.782Z",
+    "groups": [
+      [
+        "Supervisor"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0qwv3rih91vk2x7ceimst1qzyzh6wdkt",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGUxwAu3fsNhIFBqgaS0q6M_65NutDtPefcFwtxW2vYBi1hzuzMJnb63TCmB7Ud5Htst85Tb-syI98VftDBrz3T83K4fwc1jvqttUMJ4KxXGjK5SQCgMySkBSMgKQCZtRFGWFOkQEKvbCxQ0JLX4DN7fwCh_jah:1xLm1A:SvLDUoT70-4_hWu3BWDioac_0ilV5aQzm32NxfYfqSA",
+    "expire_date": "2026-11-10T18:35:28.895Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8odafk5c73638s3w00cmndnlwinzjbui",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAsggevfcbyMKiVA1NSnsy_rtt0oPOcd6beYtI61Lj2sscRxYXYcXpt0uUn6XtgB_U7pPMU1vmMcldkQftcpi4vK6H-3dQqddtHcqWZAjorDhYACDtHBokCiol8sohOu-wgFXak8qW2cCN0RurXRafL-J6N2M:1xM3nG:tDPJtxC00wIPFaHfICXTun1RtoIV9pOoRcdik5d7bgg",
+    "expire_date": "2026-11-11T13:34:18.171Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nhupt2bra56f2r14adqijpomvo20krm7",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGUxwAu3fsNhIFBqgaS0q6M_65NutDtPefcFwtxW2vYBi1hzuzMJnb63TCmB7Ud5Htst85Tb-syI98VftDBrz3T83K4fwc1jvqttUMJ4KxXGjK5SQCgMySkBSMgKQCZtRFGWFOkQEKvbCxQ0JLX4DN7fwCh_jah:1xLllC:X8NprrsXeG8ZzzJEuIOuvvR1rIrzJLpOHjYH-Nnh8Io",
+    "expire_date": "2026-11-10T18:18:58.880Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rl4ityile66torfbo2f19yrwtxwgxp3e",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDBToFx6b5nIDCAVA0kpV0Z765NutDtf-_9l3B-W4vbelrcHMVFKHH63YLnR6o7iHdfb01yq-syB7kr8qBdTi2m5_Vw_w6K7-Vb06jJckDIGC2E7DmBVwhjNANqO4ABoxkAtUqJIhoyZxoAQdscApN4fwDHezbq:1xLkIH:vnt8puE3uL8lBxAho3ISfqMNcX4-gmIQHhJ7PDvII08",
+    "expire_date": "2026-11-10T16:45:01.410Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vt4v85tgm26ll9q55fo1506m5tm4m5ib",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hChQMGle89AhplBqgaS0q6Md7dNutDte-__t4iwLiWunec4kbgII06_LAE-ue6CHlDvTWKryzwluSfysF3eGvHrerR_BwV62daDy9ZQMKC1Gp03dsCsA6P1aHGDbJM3g8_nAEw6ILMmcj4R56QUjeLzBdvPOHU:1xLmMK:XzYfXBlfGivWIzinexV3FFehtirKO_3NY5j4an7xEfg",
+    "expire_date": "2026-11-10T18:57:20.913Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yt33zvz7lju038vmboqlpslvvm4pvs8h",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGUxwAu3fsNhIFBqgaS0q6M_65NutDtPefcFwtxW2vYBi1hzuzMJnb63TCmB7Ud5Htst85Tb-syI98VftDBrz3T83K4fwc1jvqttUMJ4KxXGjK5SQCgMySkBSMgKQCZtRFGWFOkQEKvbCxQ0JLX4DN7fwCh_jah:1xLljQ:RwdvRW6ANRRqUAevpMy7boxF8y--x5k3cQ4KyPfsSKY",
+    "expire_date": "2026-11-10T18:17:08.175Z"
+  }
+},
+{
+  "model": "core.machine",
+  "pk": 1,
+  "fields": {
+    "name": "CNC Milling Machine",
+    "model_number": "CNC-001",
+    "description": "Industrial CNC milling machine used for precision machining",
+    "created_at": "2026-10-27T16:52:02.198Z"
+  }
+},
+{
+  "model": "core.machine",
+  "pk": 2,
+  "fields": {
+    "name": "Test Machine 2",
+    "model_number": "TEST-002",
+    "description": "Fictional machine for isolation testing",
+    "created_at": "2026-10-27T18:23:46.778Z"
+  }
+},
+{
+  "model": "core.machine",
+  "pk": 3,
+  "fields": {
+    "name": "Permission Test Machine",
+    "model_number": "PERM-003",
+    "description": "Temporary machine for permission testing",
+    "created_at": "2026-10-27T18:44:08.008Z"
+  }
+},
+{
+  "model": "core.manual",
+  "pk": 1,
+  "fields": {
+    "machine": 1,
+    "title": "CNC Milling Machine Basic Maintenance Guide",
+    "revision": "Rev A",
+    "pdf": "manuals/forgeassist_sample_cnc_manual.pdf",
+    "uploaded_by": [
+      "dhruva"
+    ],
+    "uploaded_at": "2026-10-27T16:59:24.273Z",
+    "processing_status": "processed"
+  }
+},
+{
+  "model": "core.manualchunk",
+  "pk": 1,
+  "fields": {
+    "manual": 1,
+    "page_number": 1,
+    "chunk_index": 0,
+    "text": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5",
+    "vector_id": ""
+  }
+},
+{
+  "model": "core.manualchunk",
+  "pk": 2,
+  "fields": {
+    "manual": 1,
+    "page_number": 2,
+    "chunk_index": 0,
+    "text": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 2 1. Purpose and Safety Note This sample guide exists to validate the ForgeAssist AI software workflow. The machine described here is fictional. All procedures below are illustrative text for software testing only. Before any real maintenance: consult the exact manufacturer's manual, follow the facility's lockout/tagout procedure, isolate hazardous energy, and use only trained and authorized personnel. Testable fact: The sample document ID is FA-DEMO-CNC-001 and its revision is Rev A. Test question: What is the document ID of this sample manual?",
+    "vector_id": ""
+  }
+},
+{
+  "model": "core.manualchunk",
+  "pk": 3,
+  "fields": {
+    "manual": 1,
+    "page_number": 3,
+    "chunk_index": 0,
+    "text": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 3 2. Daily Inspection Checklist The following is a mock checklist for testing search and retrieval. It is not a real maintenance procedure. Item Illustrative check Record 1 Review the machine area for visible spills or obstructions. Pass / Needs review 2 Look for visible damage on external guards without removing them. Pass / Needs review 3 Check whether warning labels are present and readable. Pass / Needs review 4 Record unusual noise or vibration reported during normal operation. Pass / Needs review Testable fact: The mock checklist contains four items.",
+    "vector_id": ""
+  }
+},
+{
+  "model": "core.manualchunk",
+  "pk": 4,
+  "fields": {
+    "manual": 1,
+    "page_number": 4,
+    "chunk_index": 0,
+    "text": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 4 3. Cleaning and Lubrication Notes This page intentionally avoids real machine-specific settings, lubricant types, quantities, or service intervals. Those values must come from the actual manufacturer's manual. Software test note: If asked for a lubricant type or interval, the assistant should say that this sample manual does not specify it and should not invent an answer. Test question: Which lubricant should be used? Expected behavior: report that the sample manual does not specify a lubricant.",
+    "vector_id": ""
+  }
+},
+{
+  "model": "core.manualchunk",
+  "pk": 5,
+  "fields": {
+    "manual": 1,
+    "page_number": 5,
+    "chunk_index": 0,
+    "text": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 5 4. Troubleshooting Examples These fictional examples are included only to test page-aware search. They are not instructions for real equipment. Example A — Search cannot find a document: Confirm that the PDF was uploaded, text extraction completed, and the selected machine is CNC-001. Example B — No relevant passage found: The assistant should state that the manual does not contain enough information rather than guessing. Example C — Source citation: A response based on this page should show the manual title, revision Rev A, and page 5. Cross-machine isolation test: When asking about a different machine, the system must not use this manual's content as evidence.",
+    "vector_id": ""
+  }
+},
+{
+  "model": "core.questionhistory",
+  "pk": 1,
+  "fields": {
+    "engineer": [
+      "dhruva"
+    ],
+    "machine": 1,
+    "question": "What is the document ID?",
+    "answer": "I found the following relevant passage in the selected machine's manual:\n\nForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5\n\nSource: CNC Milling Machine Basic Maintenance Guide, revision Rev A, page 1.",
+    "insufficient_evidence": false,
+    "created_at": "2026-10-27T18:19:21.047Z"
+  }
+},
+{
+  "model": "core.questionhistory",
+  "pk": 2,
+  "fields": {
+    "engineer": [
+      "dhruva"
+    ],
+    "machine": 1,
+    "question": "What is the document ID?",
+    "answer": "I found the following relevant passage in the selected machine's manual:\n\nForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5\n\nSource: CNC Milling Machine Basic Maintenance Guide, revision Rev A, page 1.",
+    "insufficient_evidence": false,
+    "created_at": "2026-10-27T18:35:38.542Z"
+  }
+},
+{
+  "model": "core.questionhistory",
+  "pk": 3,
+  "fields": {
+    "engineer": [
+      "test_engineer"
+    ],
+    "machine": 1,
+    "question": "What is the document ID?",
+    "answer": "I found the following relevant passage in the selected machine's manual:\n\nForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5\n\nSource: CNC Milling Machine Basic Maintenance Guide, revision Rev A, page 1.",
+    "insufficient_evidence": false,
+    "created_at": "2026-10-27T18:41:55.544Z"
+  }
+},
+{
+  "model": "core.questionhistory",
+  "pk": 4,
+  "fields": {
+    "engineer": [
+      "dhruva"
+    ],
+    "machine": 1,
+    "question": "What is the document ID?",
+    "answer": "I found the following relevant passage in the selected machine's manual:\n\nForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5\n\nSource: CNC Milling Machine Basic Maintenance Guide, revision Rev A, page 1.",
+    "insufficient_evidence": false,
+    "created_at": "2026-10-28T13:11:25.207Z"
+  }
+},
+{
+  "model": "core.questionhistory",
+  "pk": 5,
+  "fields": {
+    "engineer": [
+      "dhruva"
+    ],
+    "machine": 1,
+    "question": "What is the document ID?",
+    "answer": "The document ID is FA-DEMO-CNC-001.\n\nSource: CNC Milling Machine Basic Maintenance Guide, revision Rev A, page 1.",
+    "insufficient_evidence": false,
+    "created_at": "2026-10-28T13:15:42.929Z"
+  }
+},
+{
+  "model": "core.questionhistory",
+  "pk": 6,
+  "fields": {
+    "engineer": [
+      "dhruva"
+    ],
+    "machine": 1,
+    "question": "What is the factory Wi-Fi password?",
+    "answer": "I could not find sufficient supporting information in the selected machine's manuals. Please consult an authorized maintenance engineer or the manufacturer.",
+    "insufficient_evidence": true,
+    "created_at": "2026-10-28T13:16:41.934Z"
+  }
+},
+{
+  "model": "core.answersource",
+  "pk": 1,
+  "fields": {
+    "history": 1,
+    "manual": 1,
+    "page_number": 1,
+    "passage": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5"
+  }
+},
+{
+  "model": "core.answersource",
+  "pk": 2,
+  "fields": {
+    "history": 1,
+    "manual": 1,
+    "page_number": 2,
+    "passage": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 2 1. Purpose and Safety Note This sample guide exists to validate the ForgeAssist AI software workflow. The machine described here is fictional. All procedures below are illustrative text for software testing only. Before any real maintenance: consult the exact manufacturer's manual, follow the facility's lockout/tagout procedure, isolate hazardous energy, and use only trained and authorized personnel. Testable fact: The sample document ID is FA-DEMO-CNC-001 and its revision is Rev A. Test question: What is the document ID of this sample manual?"
+  }
+},
+{
+  "model": "core.answersource",
+  "pk": 3,
+  "fields": {
+    "history": 1,
+    "manual": 1,
+    "page_number": 5,
+    "passage": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 5 4. Troubleshooting Examples These fictional examples are included only to test page-aware search. They are not instructions for real equipment. Example A — Search cannot find a document: Confirm that the PDF was uploaded, text extraction completed, and the selected machine is CNC-001. Example B — No relevant passage found: The assistant should state that the manual does not contain enough information rather than guessing. Example C — Source citation: A response based on this page should show the manual title, revision Rev A, and page 5. Cross-machine isolation test: When asking about a different machine, the system must not use this manual's content as evidence."
+  }
+},
+{
+  "model": "core.answersource",
+  "pk": 4,
+  "fields": {
+    "history": 2,
+    "manual": 1,
+    "page_number": 1,
+    "passage": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5"
+  }
+},
+{
+  "model": "core.answersource",
+  "pk": 5,
+  "fields": {
+    "history": 3,
+    "manual": 1,
+    "page_number": 1,
+    "passage": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5"
+  }
+},
+{
+  "model": "core.answersource",
+  "pk": 6,
+  "fields": {
+    "history": 4,
+    "manual": 1,
+    "page_number": 1,
+    "passage": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5"
+  }
+},
+{
+  "model": "core.answersource",
+  "pk": 7,
+  "fields": {
+    "history": 5,
+    "manual": 1,
+    "page_number": 1,
+    "passage": "ForgeAssist AI — Fictional software testing sample; not for real-world machine use Page 1 SAMPLE TEST DOCUMENT CNC Milling Machine — Basic Maintenance Guide Machine name: Demo CNC Milling Machine Model number: CNC-001 Manual revision: Rev A (training sample) Document ID: FA-DEMO-CNC-001 IMPORTANT: This is a fictional document created only to test PDF upload, text extraction, page citations, and retrieval in ForgeAssist AI. It is not an actual manufacturer's manual and must not be used to operate, repair, or maintain real machinery. Always follow the real machine manufacturer's documentation and site safety procedures. Contents 1. Purpose and safety note — page 2 2. Daily inspection checklist — page 3 3. Cleaning and lubrication notes — page 4 4. Troubleshooting examples — page 5"
+  }
+}
+]
