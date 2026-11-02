@@ -4,165 +4,170 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ForgeAssist AI | Maintenance Assistant</title>
+    <title>ForgeAssist AI | Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/app.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark forge-navbar">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/">ForgeAssist AI</a>
-            <span class="navbar-text d-none d-md-inline">Manufacturing Manual Assistant</span>
-            <a class="btn btn-outline-light btn-sm ms-auto" href="/accounts/logout/">Log out</a>
-        </div>
-    </nav>
 
-    <main class="container py-4 py-lg-5">
-        <section class="welcome-section mb-4">
-            <div>
-                <span class="eyebrow">MANUFACTURING KNOWLEDGE ASSISTANT</span>
-                <h1 class="display-6 fw-bold mt-2">Maintenance assistant</h1>
-                <p class="text-secondary mb-0">
-                    Ask questions and get answers grounded in the selected machine's manuals.
-                </p>
-            </div>
-            <div class="user-chip">
-                <span class="status-dot"></span>
-                Signed in as <strong>{{ request.user.username }}</strong>
-            </div>
-        </section>
+    <div class="app-layout">
 
-        <div class="row g-4">
-            <div class="col-lg-8">
-                <section class="panel assistant-panel">
-                    <div class="panel-heading">
-                        <div class="assistant-icon">FA</div>
-                        <div>
-                            <h2 class="h5 mb-1">Ask ForgeAssist</h2>
-                            <p class="text-secondary small mb-0">Answers include supporting manual references.</p>
-                        </div>
+        <aside class="app-sidebar">
+            <div class="sidebar-brand">ForgeAssist<span style="color:#55c5b4">.</span></div>
+
+            <div class="sidebar-label">Workspace</div>
+            <nav class="sidebar-nav">
+                <a href="/" class="active"><span>▦</span> Dashboard</a>
+                <a href="/machines/"><span>▤</span> Machines</a>
+                <a href="/manuals/"><span>▣</span> Manuals</a>
+
+                {% if "Supervisor" in role_names or request.user.is_superuser %}
+                <a href="/history/"><span>◷</span> History</a>
+                {% endif %}
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="small text-white-50 mb-2">SIGNED IN AS</div>
+                <div class="fw-semibold mb-3">{{ request.user.username }}</div>
+                <a href="/accounts/login/">↗ Log out</a>
+            </div>
+        </aside>
+
+        <div class="app-main">
+
+            <header class="app-topbar">
+                <div>
+                    <div class="fw-bold">Manufacturing Assistant</div>
+                    <small class="text-secondary">AI-powered manual knowledge workspace</small>
+                </div>
+                <span class="badge rounded-pill text-bg-success">System Online</span>
+            </header>
+
+            <main class="app-content">
+
+                <section class="welcome-section mb-4">
+                    <div>
+                        <span class="eyebrow">MANUFACTURING KNOWLEDGE ASSISTANT</span>
+                        <h1 class="display-6 fw-bold mt-2">Good to see you, {{ request.user.username }}</h1>
+                        <p class="text-secondary mb-0">
+                            Ask questions and get answers grounded in the selected machine's manuals.
+                        </p>
                     </div>
+                </section>
 
-                    <div class="p-4">
-                        <div id="status-message" class="alert d-none" role="status"></div>
+                <div class="row g-4">
+                    <div class="col-lg-8">
 
-                        <form id="ask-form" {% csrf_token %}>
-                            <label class="form-label fw-semibold" for="machine">Select machine</label>
-                            <select class="form-select mb-3" id="machine" required>
-                                <option value="">Loading machines...</option>
-                            </select>
+                        <section class="panel assistant-panel">
+                            <div class="panel-heading">
+                                <div class="assistant-icon">FA</div>
+                                <div>
+                                    <h2 class="h5 mb-1">Ask ForgeAssist</h2>
+                                    <p class="text-secondary small mb-0">Answers include supporting manual references.
+                                    </p>
+                                </div>
+                            </div>
 
-                            <label class="form-label fw-semibold" for="question">Your maintenance question</label>
-                            <textarea class="form-control question-input mb-3" id="question" rows="4" maxlength="2000"
-                                placeholder="For example: What does the manual say about daily inspection?"
-                                required></textarea>
+                            <div class="p-4">
+                                <div id="status-message" class="alert d-none" role="status"></div>
 
-                            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                                <span class="small text-secondary">Answers are limited to available manual
-                                    evidence.</span>
-                                <button class="btn btn-primary px-4" id="ask-button" type="submit">
-                                    <span id="ask-button-text">Ask question</span>
-                                    <span id="ask-spinner" class="spinner-border spinner-border-sm ms-2 d-none"
-                                        aria-hidden="true"></span>
+                                <form id="ask-form" {% csrf_token %}>
+                                    <label class="form-label fw-semibold" for="machine">Select machine</label>
+                                    <select class="form-select mb-3" id="machine" required>
+                                        <option value="">Loading machines...</option>
+                                    </select>
+
+                                    <label class="form-label fw-semibold" for="question">Your maintenance
+                                        question</label>
+                                    <textarea class="form-control question-input mb-3" id="question" rows="4"
+                                        maxlength="2000" placeholder="Ask a question about your machine..."
+                                        required></textarea>
+
+                                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                                        <span class="small text-secondary">Answers are limited to available manual
+                                            evidence.</span>
+                                        <button class="btn btn-primary px-4" id="ask-button" type="submit">
+                                            <span id="ask-button-text">Ask question</span>
+                                            <span id="ask-spinner" class="spinner-border spinner-border-sm ms-2 d-none"
+                                                aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div id="answer-section" class="answer-section d-none">
+                                <div class="answer-topline">
+                                    <h3 class="h6 fw-bold mb-0">Assistant response</h3>
+                                    <span id="answer-status" class="badge text-bg-success">Evidence found</span>
+                                </div>
+                                <div id="answer-text" class="answer-text"></div>
+                                <div class="mt-4">
+                                    <h4 class="h6 fw-bold">Supporting sources</h4>
+                                    <div id="sources-list" class="sources-list"></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="panel mt-4">
+                            <div class="panel-heading">
+                                <div>
+                                    <h2 class="h5 mb-1">Recent questions</h2>
+                                    <p class="text-secondary small mb-0">Your previous questions and answers.</p>
+                                </div>
+                                <button id="refresh-history" class="btn btn-outline-secondary btn-sm" type="button">
+                                    Refresh
                                 </button>
                             </div>
-                        </form>
-                    </div>
-
-                    <div id="answer-section" class="answer-section d-none">
-                        <div class="answer-topline">
-                            <h3 class="h6 fw-bold mb-0">Assistant response</h3>
-                            <span id="answer-status" class="badge text-bg-success">Evidence found</span>
-                        </div>
-                        <div id="answer-text" class="answer-text"></div>
-
-                        <div class="mt-4">
-                            <h4 class="h6 fw-bold">Supporting sources</h4>
-                            <div id="sources-list" class="sources-list"></div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="panel mt-4">
-                    <div class="panel-heading">
-                        <div>
-                            <h2 class="h5 mb-1">Recent questions</h2>
-                            <p class="text-secondary small mb-0">Review your previous questions and answers.</p>
-                        </div>
-                        <button id="refresh-history" class="btn btn-outline-secondary btn-sm" type="button">
-                            Refresh
-                        </button>
-                    </div>
-                    <div id="history-list" class="history-list">
-                        <p class="text-secondary small mb-0">Loading history...</p>
-                    </div>
-                </section>
-            </div>
-
-            <div class="col-lg-4">
-                <aside class="panel mb-4">
-                    <div class="panel-heading">
-                        <h2 class="h6 fw-bold mb-0">Workspace</h2>
-                    </div>
-                    <div class="p-3">
-                        <div class="workspace-item">
-                            <span class="workspace-symbol">01</span>
-                            <div>
-                                <div class="fw-semibold">Machine-specific search</div>
-                                <p class="small text-secondary mb-0">Answers are retrieved from the selected machine's
-                                    manuals.</p>
+                            <div id="history-list" class="history-list">
+                                <p class="text-secondary small mb-0">Loading history...</p>
                             </div>
-                        </div>
-                        <div class="workspace-item">
-                            <span class="workspace-symbol">02</span>
-                            <div>
-                                <div class="fw-semibold">Traceable answers</div>
-                                <p class="small text-secondary mb-0">Review the manual revision and page for each
-                                    source.</p>
-                            </div>
-                        </div>
-                        <div class="workspace-item">
-                            <span class="workspace-symbol">03</span>
-                            <div>
-                                <div class="fw-semibold">Evidence first</div>
-                                <p class="small text-secondary mb-0">The assistant should say when supporting
-                                    information is missing.</p>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
+                        </section>
 
-                <aside class="panel">
-                    <div class="panel-heading">
-                        <h2 class="h6 fw-bold mb-0">Quick links</h2>
                     </div>
-                    <div class="p-3 quick-links">
-                        <a href="/api/machines/">Machine registry API <span>↗</span></a>
-                        <a href="/api/manuals/">Manual library API <span>↗</span></a>
-                        <a href="/api/questions/">Question history API <span>↗</span></a>
-                        {% if request.user.is_staff %}
-                        <a href="/admin/">Django administration <span>↗</span></a>
-                        {% endif %}
+
+                    <div class="col-lg-4">
+                        <aside class="panel">
+                            <div class="panel-heading">
+                                <h2 class="h6 fw-bold mb-0">Workspace overview</h2>
+                            </div>
+                            <div class="p-3">
+                                <div class="workspace-item">
+                                    <span class="workspace-symbol">01</span>
+                                    <div>
+                                        <div class="fw-semibold">Machine-specific search</div>
+                                        <p class="small text-secondary mb-0">Answers use the selected machine's manuals.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="workspace-item">
+                                    <span class="workspace-symbol">02</span>
+                                    <div>
+                                        <div class="fw-semibold">Traceable answers</div>
+                                        <p class="small text-secondary mb-0">Review manual revisions and page
+                                            references.</p>
+                                    </div>
+                                </div>
+                                <div class="workspace-item">
+                                    <span class="workspace-symbol">03</span>
+                                    <div>
+                                        <div class="fw-semibold">Evidence first</div>
+                                        <p class="small text-secondary mb-0">Missing information is clearly identified.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
                     </div>
-                    <div class="role-footer">
-                        <span class="small text-secondary">Your roles</span>
-                        <div class="mt-2">
-                            {% for role in role_names %}
-                            <span class="role-pill">{{ role }}</span>
-                            {% empty %}
-                            <span class="text-secondary small">No role assigned</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </aside>
-            </div>
+                </div>
+
+                <footer class="page-footer mt-5">
+                    ForgeAssist AI · Phase 1 Manufacturing Manual Assistant
+                </footer>
+
+            </main>
         </div>
-
-        <footer class="page-footer mt-5">
-            ForgeAssist AI · Phase 1 Manufacturing Manual Assistant
-        </footer>
-    </main>
+    </div>
 
     <script src="/static/js/app.js"></script>
 </body>

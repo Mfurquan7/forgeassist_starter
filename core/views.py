@@ -45,7 +45,44 @@ def dashboard(request):
             )
         },
     )
+@login_required
+def machines_page(request):
+    return render(
+        request,
+        "core/machines.html",
+        {
+            "is_administrator": has_role(request.user, "Administrator"),
+            "role_names": list(
+                request.user.groups.values_list("name", flat=True)
+            ),
+        },
+    )
 
+
+@login_required
+def manuals_page(request):
+    return render(
+        request,
+        "core/manuals.html",
+        {
+            "is_administrator": has_role(request.user, "Administrator"),
+            "role_names": list(
+                request.user.groups.values_list("name", flat=True)
+            ),
+        },
+    )
+
+
+@login_required
+def history_page(request):
+    if not (
+        has_role(request.user, "Supervisor")
+        or request.user.is_superuser
+    ):
+        from django.core.exceptions import PermissionDenied
+        raise PermissionDenied
+
+    return render(request, "core/history.html")
 
 class MachineViewSet(viewsets.ModelViewSet):
     queryset = Machine.objects.all().order_by("name")

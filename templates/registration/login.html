@@ -4,46 +4,469 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | ForgeAssist AI</title>
+    <title>Sign In | ForgeAssist AI</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #172f40;
+            --ink: #1c3443;
+            --teal: #16877f;
+            --muted: #84939e;
+            --border: #e5ebef;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #f4f7f9;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--ink);
+        }
+
+        .login-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        /* Left branding section */
+
+        .brand-panel {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 55px 65px;
+            background: var(--navy);
+            color: white;
+        }
+
+        .brand-panel::before,
+        .brand-panel::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(91, 195, 179, 0.15);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .brand-panel::before {
+            width: 550px;
+            height: 550px;
+            right: -220px;
+            top: 12%;
+        }
+
+        .brand-panel::after {
+            width: 400px;
+            height: 400px;
+            right: -145px;
+            top: 22%;
+        }
+
+        .brand-content,
+        .brand-footer,
+        .brand-logo {
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+        }
+
+        .logo-icon {
+            display: grid;
+            place-items: center;
+            width: 43px;
+            height: 43px;
+            border-radius: 12px;
+            background: var(--teal);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .brand-content {
+            max-width: 540px;
+            margin: auto 0;
+            padding: 70px 0;
+        }
+
+        .brand-eyebrow {
+            color: #65c8b7;
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .brand-content h1 {
+            margin: 22px 0;
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .brand-content h1 span {
+            color: #65c8b7;
+        }
+
+        .brand-description {
+            max-width: 430px;
+            color: #b3c3cc;
+            font-size: 1.03rem;
+            line-height: 1.9;
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 20px;
+            margin-top: 45px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #e0e9ed;
+            font-size: 0.92rem;
+        }
+
+        .feature-icon {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(101, 200, 183, 0.3);
+            border-radius: 10px;
+            color: #65c8b7;
+        }
+
+        .brand-footer {
+            color: #92a8b5;
+            font-size: 0.82rem;
+        }
+
+        /* Right login section */
+
+        .login-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 45px;
+            background: #f8fafb;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 410px;
+        }
+
+        .mobile-logo {
+            display: none;
+        }
+
+        .login-heading {
+            margin-bottom: 35px;
+        }
+
+        .login-heading .eyebrow {
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+        }
+
+        .login-heading h2 {
+            margin-top: 13px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .login-heading p {
+            margin-top: 9px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .form-label {
+            margin-bottom: 9px;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .form-control {
+            min-height: 52px;
+            padding: 13px 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: white;
+            font-family: inherit;
+            font-size: 0.93rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 4px rgba(22, 135, 127, 0.10);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper .form-control {
+            padding-right: 75px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 14px;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: var(--teal);
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .login-button {
+            width: 100%;
+            min-height: 52px;
+            margin-top: 12px;
+            border: none;
+            border-radius: 10px;
+            background: var(--teal);
+            color: white;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .login-button:hover {
+            background: #116c66;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(22, 135, 127, 0.18);
+        }
+
+        .login-security {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 25px;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .login-security span {
+            color: var(--teal);
+        }
+
+        .login-error {
+            padding: 13px 15px;
+            border-radius: 9px;
+            font-size: 0.87rem;
+        }
+
+        @media (max-width: 900px) {
+            .brand-panel {
+                padding: 40px;
+            }
+
+            .login-panel {
+                padding: 30px;
+            }
+
+            .brand-content h1 {
+                font-size: 2.7rem;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .login-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-panel {
+                display: none;
+            }
+
+            .login-panel {
+                min-height: 100vh;
+                padding: 30px 24px;
+            }
+
+            .mobile-logo {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 55px;
+                font-family: 'Manrope', sans-serif;
+                font-size: 1.3rem;
+                font-weight: 800;
+            }
+
+            .login-heading h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-light">
-    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-        <div class="card shadow-sm border-0 p-4" style="width: 100%; max-width: 420px;">
-            <h2 class="text-center mb-2">ForgeAssist AI</h2>
-            <p class="text-center text-secondary mb-4">Manufacturing Manual Assistant</p>
+<body>
 
-            <form method="post">
-                {% csrf_token %}
-                {% if form.errors %}
-                <div class="alert alert-danger">
-                    Invalid username or password. Please try again.
+    <div class="login-layout">
+
+        <!-- Branding panel -->
+
+        <section class="brand-panel">
+
+            <div class="brand-logo">
+                <div class="logo-icon">FA</div>
+                ForgeAssist<span style="color:#65c8b7">.</span>
+            </div>
+
+            <div class="brand-content">
+                <span class="brand-eyebrow">INTELLIGENT MANUFACTURING</span>
+
+                <h1>
+                    Your machines.<br>
+                    Your manuals.<br>
+                    <span>One intelligent assistant.</span>
+                </h1>
+
+                <p class="brand-description">
+                    Access manufacturing knowledge with AI-powered
+                    assistance. Get reliable answers directly from
+                    your machine manuals.
+                </p>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">✦</span>
+                        AI-powered manual assistance
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Evidence-backed answers
+                    </div>
+
+                    <div class="feature-item">
+                        <span class="feature-icon">⌘</span>
+                        Machine-specific knowledge
+                    </div>
                 </div>
-                {% endif %}
+            </div>
 
-                {% if next %}
-                <input type="hidden" name="next" value="{{ next }}">
-                {% endif %}
+            <div class="brand-footer">
+                © 2026 ForgeAssist AI · Manufacturing Manual Assistant
+            </div>
 
-                <div class="mb-3">
-                    <label for="id_username" class="form-label">Username</label>
-                    <input type="text" name="username" id="id_username" class="form-control" autocomplete="username"
-                        required autofocus>
+        </section>
+
+        <!-- Login panel -->
+
+        <section class="login-panel">
+
+            <div class="login-card">
+
+                <div class="mobile-logo">
+                    <div class="logo-icon">FA</div>
+                    ForgeAssist<span style="color:#16877f">.</span>
                 </div>
 
-                <div class="mb-3">
-                    <label for="id_password" class="form-label">Password</label>
-                    <input type="password" name="password" id="id_password" class="form-control"
-                        autocomplete="current-password" required>
+                <div class="login-heading">
+                    <span class="eyebrow">WELCOME BACK</span>
+                    <h2>Sign in to your account</h2>
+                    <p>Enter your credentials to access your workspace.</p>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">
-                    Sign in
-                </button>
-            </form>
-        </div>
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% if form.errors %}
+                    <div class="alert alert-danger login-error">
+                        Invalid username or password. Please try again.
+                    </div>
+                    {% endif %}
+
+                    {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                    {% endif %}
+
+                    <div class="mb-4">
+                        <label for="id_username" class="form-label">
+                            Username
+                        </label>
+
+                        <input type="text" name="username" id="id_username" class="form-control"
+                            placeholder="Enter your username" autocomplete="username" required autofocus>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label">
+                            Password
+                        </label>
+
+                        <div class="password-wrapper">
+                            <input type="password" name="password" id="id_password" class="form-control"
+                                placeholder="Enter your password" autocomplete="current-password" required>
+
+                            <button type="button" class="toggle-password" id="toggle-password">
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-button">
+                        Sign in to ForgeAssist <span>→</span>
+                    </button>
+
+                </form>
+
+                <div class="login-security">
+                    <span>●</span>
+                    Secure access to your manufacturing workspace
+                </div>
+
+            </div>
+
+        </section>
+
     </div>
+
+    <script>
+        const passwordInput = document.getElementById("id_password");
+        const toggleButton = document.getElementById("toggle-password");
+
+        toggleButton.addEventListener("click", () => {
+            const isPassword = passwordInput.type === "password";
+
+            passwordInput.type = isPassword ? "text" : "password";
+            toggleButton.textContent = isPassword ? "Hide" : "Show";
+        });
+    </script>
+
 </body>
 
 </html>

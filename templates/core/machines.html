@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ForgeAssist AI | Machines</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-layout">
+        <aside class="app-sidebar">
+            <div class="sidebar-brand">ForgeAssist<span style="color:#55c5b4">.</span></div>
+            <div class="sidebar-label">Workspace</div>
+            <nav class="sidebar-nav">
+                <a href="/">▦ Dashboard</a>
+                <a href="/machines/" class="active">▤ Machines</a>
+                <a href="/manuals/">▣ Manuals</a>
+                {% if "Supervisor" in role_names or request.user.is_superuser %}
+                <a href="/history/">◷ History</a>
+                {% endif %}
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="small text-white-50 mb-2">SIGNED IN AS</div>
+                <div class="fw-semibold mb-3">{{ request.user.username }}</div>
+                <a href="/accounts/logout/">↗ Log out</a>
+            </div>
+        </aside>
+
+        <div class="app-main">
+            <header class="app-topbar">
+                <div>
+                    <div class="fw-bold">Machine Registry</div>
+                    <small class="text-secondary">Registered manufacturing equipment</small>
+                </div>
+                <span class="badge rounded-pill text-bg-success">System Online</span>
+            </header>
+
+            <main class="app-content">
+                <section class="welcome-section">
+                    <div>
+                        <span class="eyebrow">EQUIPMENT MANAGEMENT</span>
+                        <h1 class="display-6 fw-bold mt-2">Machines</h1>
+                        <p class="text-secondary">View machines registered in ForgeAssist AI.</p>
+                    </div>
+                </section>
+
+                <div id="machine-message" class="alert d-none"></div>
+                {% if is_administrator %}
+                <section class="panel mb-4">
+                    <div class="panel-heading">
+                        <div>
+                            <h2 class="h5 mb-1">Register a machine</h2>
+                            <p class="small text-secondary mb-0">Add new manufacturing equipment.</p>
+                        </div>
+                        <span class="badge text-bg-success">Administrator</span>
+                    </div>
+
+                    <form id="machine-create-form" class="p-4">
+                        {% csrf_token %}
+
+                        <div id="create-machine-message" class="alert d-none"></div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="machine-name">Machine name</label>
+                                <input class="form-control" id="machine-name" name="name"
+                                    placeholder="e.g. Hydraulic forming press" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label" for="machine-model">Model number</label>
+                                <input class="form-control" id="machine-model" name="model_number"
+                                    placeholder="e.g. HP-200" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label" for="machine-description">Description</label>
+                                <textarea class="form-control" id="machine-description" name="description" rows="3"
+                                    placeholder="Enter machine description"></textarea>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary mt-4" id="create-machine-button" type="submit">
+                            Register machine
+                        </button>
+                    </form>
+                </section>
+                {% endif %}
+
+                <div id="machine-message" class="alert d-none"></div>
+
+                <div id="machine-grid" class="row g-4">
+                    <div id="machine-grid" class="row g-4">
+                        <div class="col-12 text-secondary">Loading machines...</div>
+                    </div>
+
+                    <footer class="page-footer mt-5">
+                        ForgeAssist AI · Machine Registry
+                    </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="/static/js/machines.js"></script>
+</body>
+
+</html>
