@@ -127,7 +127,10 @@ function renderSources(sources) {
 
     const meta = document.createElement("div");
     meta.className = "source-meta";
-    meta.textContent = `Revision ${source.revision || "Unknown"} · Page ${source.page ?? "Unknown"}`;
+    meta.textContent =
+      `Document: ${source.document_id || "Unknown"} · ` +
+      `Revision ${source.revision || "Unknown"} · ` +
+      `Page ${source.page ?? source.page_number ?? "Unknown"}`;
 
     const passage = document.createElement("div");
     passage.className = "source-passage";

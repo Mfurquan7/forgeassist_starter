@@ -47,7 +47,7 @@
                     <div class="p-4">
                         <div id="status-message" class="alert d-none" role="status"></div>
 
-                        <form id="ask-form">
+                        <form id="ask-form" {% csrf_token %}>
                             <label class="form-label fw-semibold" for="machine">Select machine</label>
                             <select class="form-select mb-3" id="machine" required>
                                 <option value="">Loading machines...</option>
